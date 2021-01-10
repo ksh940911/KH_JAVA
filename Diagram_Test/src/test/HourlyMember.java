@@ -2,15 +2,15 @@ package test;
 
 public class HourlyMember extends Member{
 	
-	private int usingHour; 
-	
 	public HourlyMember(int age, int usingHour) {
 		super(age);
 		this.usingHour = usingHour;
 	}
 
+	private int usingHour;
+
 	@Override
 	public int getPayment() {
-		return usingHour*100;
+		return 100*usingHour;
 	}
 }

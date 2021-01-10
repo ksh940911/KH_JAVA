@@ -6,5 +6,4 @@ public class Dog implements Mic{
 	public void say() {
 		System.out.println("멍멍멍멍멍");
 	}
-
 }
