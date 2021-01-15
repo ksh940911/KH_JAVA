@@ -14,7 +14,6 @@ import java.util.List;
 
 import kh.java.email.model.vo.Email;
 
-
 /**
  * 직접 파일에 접근하는 성격의 코드를 작성
  * ex) 파일에 접근해서 저장, 읽어오는 일 
@@ -24,6 +23,7 @@ public class EmailIO {
 	
 	//필드로 만들기
 	File f = new File("emailList.txt");
+	
 	/**
 	 * emailList.txt 파일에 email객체 추가하기
 	 */
@@ -43,7 +43,6 @@ public class EmailIO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 	
 	//파일에 접근해서 읽어오기
@@ -58,11 +57,11 @@ public class EmailIO {
 				Email email = (Email)ois.readObject();
 				list.add(email);
 			}
-		}catch(FileNotFoundException e) {
-			//최초 등록시 FileNotFoundException 발생
-		}catch(EOFException e) {
+		} catch (FileNotFoundException e) {
+			//최초 등록시 FileNotFoundException발생 
+		} catch (EOFException e) {
 			//처리코드 없음.
-		}catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;

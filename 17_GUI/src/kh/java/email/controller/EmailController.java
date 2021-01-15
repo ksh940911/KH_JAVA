@@ -14,7 +14,7 @@ public class EmailController {
 		emailIO.insertEmail(email);
 	}
 
-	public List<Email> loadEmailist() {
+	public List<Email> loadEmailList() {
 		return emailIO.loadEmailList();
 	}
 	

@@ -18,9 +18,10 @@ import kh.java.gui.util.MyUtil;
 
 public class EmailFrame extends JFrame {
 	
-	private JTextArea textArea;
 	private EmailController emailController = new EmailController();
-	//view -> controller -> io ->file
+	private JTextArea textArea;
+	
+	//view -> controller -> io -> file
 	public EmailFrame(int w, int h, String title) {
 		MyUtil.init(this, w, h, title);
 		
@@ -43,9 +44,7 @@ public class EmailFrame extends JFrame {
 				inputEmail.setText("");
 				//입력된 목록 불러오기
 				loadEmailList();
-				
 			}
-
 		});
 		
 		JPanel listPanel = new JPanel();
@@ -55,9 +54,11 @@ public class EmailFrame extends JFrame {
 		add(inputPanel, BorderLayout.NORTH);
 		add(listPanel);
 	}
+	
 	//여기서 다시 controller에 요청을 해서, email목록을 가져옴
 	protected void loadEmailList() {
-		List<Email> list = emailController.loadEmailist();
+		List<Email> list = emailController.loadEmailList();
+		System.out.println("list@emailFrame = " + list);
 		
 		textArea.setText("");//초기화
 		

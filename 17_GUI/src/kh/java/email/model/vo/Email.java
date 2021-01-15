@@ -28,6 +28,4 @@ public class Email implements Serializable {
 	public String toString() {
 		return "Email [email=" + email + "]";
 	}
-
-	
 }

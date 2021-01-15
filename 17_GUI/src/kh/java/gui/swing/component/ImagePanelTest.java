@@ -68,5 +68,4 @@ public class ImagePanelTest extends JFrame {
 	public static void main(String[] args) {
 		new ImagePanelTest(500,500,"백그라운드 이미지").setVisible(true);
 	}
-
 }

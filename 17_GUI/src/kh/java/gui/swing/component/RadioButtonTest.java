@@ -59,19 +59,19 @@ public class RadioButtonTest extends JFrame {
 		panel.add(small);
 		panel.add(medium);
 		panel.add(large);
-		add(panel, BorderLayout.SOUTH);
+		add(panel);
 		
 	}
-	
+
 	private void resultPanel() {
 		JPanel panel = new JPanel();
 		this.resultLabel = new JLabel("사이즈를 선택하세요.");
 		panel.add(resultLabel);
-		add(panel);
+		add(panel, BorderLayout.SOUTH);
 	}
 
 	public static void main(String[] args) {
-		new RadioButtonTest(300, 200, "라디오 버튼").setVisible(true);
-
+		new RadioButtonTest(300,200, "라디오 버튼").setVisible(true);
 	}
+
 }

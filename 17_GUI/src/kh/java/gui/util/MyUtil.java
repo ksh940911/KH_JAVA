@@ -7,7 +7,7 @@ import kh.java.gui.swing.change.panel.CustomPanel;
 
 public class MyUtil {
 
-	public static void init(JFrame f,int w, int h, String title) {
+	public static void init(JFrame f, int w, int h, String title) {
 		f.setTitle(title);
 		f.setSize(w, h);
 		f.setLocationRelativeTo(null);
