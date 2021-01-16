@@ -20,19 +20,19 @@ import kh.java.gui.util.MyUtil;
 /**
  * 테이블모델을 만들거고, 그 안에 데이터가 저장됨
  * JTable(TableModel)
- * - TableModel 데이터가 저장되는 객체, 이벤트핸들링도 테이블모델에 검
+ * - TableModel 데이터가 저장되는 객체, 이벤트핸들링  
  * JScrollPane(JTable)을 추가
  * - 헤더부 노출(표 각각 부분의 항목), 스크롤 기능을 위한 목적
  *
  */
-public class JTableTest extends JFrame {
+public class JTableTest2 extends JFrame {
 	
 	//List : 중복허용 -> 쌓여서 들어감!
 	List<Member> list = new ArrayList<>();
 	{
 		list.add(new Member("홍길동", "서울", 24, false));
 		list.add(new Member("신사임당", "부산", 48, true));
-		list.add(new Member("세종", "서울", 67, true));
+		list .add(new Member("세종", "서울", 67, true));
 		list.add(new Member("홍길동", "서울", 24, false));
 		list.add(new Member("신사임당", "부산", 48, true));
 		list.add(new Member("세종", "서울", 67, true));
@@ -56,7 +56,7 @@ public class JTableTest extends JFrame {
 		list.add(new Member("세종", "서울", 67, true));
 	}
 
-	public JTableTest(int w, int h, String title) {
+	public JTableTest2(int w, int h, String title) {
 		MyUtil.init(this, w, h, title);
 		
 		//컬럼정보 - 1차원 배열
@@ -154,7 +154,7 @@ public class JTableTest extends JFrame {
 	}
 
 	public static void main(String[] args) {
-			new JTableTest(500, 200, "JTable").setVisible(true);
+			new JTableTest2(500, 200, "JTable").setVisible(true);
 	}
 
 }

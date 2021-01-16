@@ -1,16 +1,13 @@
 package member.model.vo;
 
 public class VVip extends Member{
-	
-	public double getInterest() {
-		return getPoint()*0.15;
+
+	@Override
+	public int interest() {
+		return (int)(getPoint()*0.15);
 	}
 
-	public VVip() {
-		super();
-	}
-
-	public VVip(String age, String grade, int point) {
-		super(age, grade, point);
+	public VVip(String name, String grade, int point) {
+		super(name, grade, point);
 	}
 }

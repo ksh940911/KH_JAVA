@@ -1,16 +1,13 @@
 package member.model.vo;
 
 public class Silver extends Member{
-	
-	public double getInterest() {
-		return getPoint()*0.02;
-	}
-	
-	public Silver() {
-		super();
+
+	@Override
+	public int interest() {
+		return (int)(getPoint()*0.02);
 	}
 
-	public Silver(String age, String grade, int point) {
-		super(age, grade, point);
+	public Silver(String name, String grade, int point) {
+		super(name, grade, point);
 	}
 }

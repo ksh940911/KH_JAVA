@@ -1,7 +1,7 @@
 package member.model.vo;
 
-public class Member {
-	private String age;
+public abstract class Member {
+	private String name;
 	private String grade;
 	private int point;
 
@@ -9,38 +9,24 @@ public class Member {
 		super();
 	}
 
-	public Member(String age, String grade, int point) {
+	public Member(String name, String grade, int point) {
 		super();
-		this.age = age;
+		this.name = name;
 		this.grade = grade;
 		this.point = point;
 	}
-	
-	public double getInterest() {
-		return 0.00;
-	}
 
-	public String getAge() {
-		return age;
-	}
-
-	public void setAge(String age) {
-		this.age = age;
+	public String getName() {
+		return name;
 	}
 
 	public String getGrade() {
 		return grade;
 	}
 
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
-
 	public int getPoint() {
 		return point;
 	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
+	
+	public abstract int interest();
 }

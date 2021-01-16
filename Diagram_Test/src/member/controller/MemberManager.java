@@ -4,7 +4,7 @@ import member.model.vo.Member;
 
 public class MemberManager {
 	Member[] arr = new Member[40];
-	int i = 0; //인덱스
+	int i = 0; //0~8까지 증가할예정
 	
 	public void insertMember(Member m) {
 		arr[i] = m;
@@ -12,8 +12,9 @@ public class MemberManager {
 	}
 	
 	public void printData() {
-		for(int j=0;j<i;j++)
-		System.out.println("이름 : " + arr[j].getAge() + " 등급 : " + arr[j].getGrade() + " 포인트 : " + arr[j].getPoint() + " 이자 : " + arr[j].getInterest());
+		for(int j=0;j<i;j++) {
+			System.out.println("이름 : " + arr[j].getName() + " 등급 : " + arr[j].getGrade() + " 포인트 : " +arr[j].getPoint() +" 이자 : " + arr[j].interest());
+		}
 	}
 }
 /**
