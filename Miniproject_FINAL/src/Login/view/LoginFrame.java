@@ -90,7 +90,7 @@ public class LoginFrame extends JFrame {
 	// 상단 패널
 	public void inToppanel() {
 
-		JLabel welcome = new JLabel("강아지 공작소");
+		JLabel welcome = new JLabel("강아지 인기투표");
 		welcome.setBounds(220, 30, 300, 50);
 		welcome.setFont(setmyfont(40));
 		panel.add(welcome);
