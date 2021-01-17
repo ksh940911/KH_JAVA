@@ -5,33 +5,29 @@ import java.util.Objects;
 
 public class Login implements Serializable{
 	
-	//파일 객체를 만들때 고유번호값을 부여함.
 	private static final long serialVersionUID = 1L;
-	
 	private String id;
 	private String password;
 	private String name;
 	private String emailAddress;
 	private String gender;
 	private String introduce;
+	public Login() {
+		super();
+	}
 	
-	//로그인 비교용
 	public Login(String id, String password) {
 		super();
 		this.id = id;
 		this.password = password;
 	}
-	
-	
-	public Login() {
-		super();
-	}
-	public Login(String id, String password, String name, String emailAddress, String gender, String introduce) {
+
+	public Login(String id, String password, String name, String emilAddress, String gender, String introduce) {
 		super();
 		this.id = id;
 		this.password = password;
 		this.name = name;
-		this.emailAddress = emailAddress;
+		this.emailAddress = emilAddress;
 		this.gender = gender;
 		this.introduce = introduce;
 	}
@@ -53,11 +49,11 @@ public class Login implements Serializable{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmilAddress() {
+	public String getEmailAddress() {
 		return emailAddress;
 	}
-	public void setEmilAddress(String emilAddress) {
-		this.emailAddress = emilAddress;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 	public String getGender() {
 		return gender;
@@ -82,13 +78,14 @@ public class Login implements Serializable{
 		if(!(obj instanceof Login))
 			return false;
 		Login temp = (Login)obj;
-		if(this.id.equals(temp.id)&&this.password.equals(temp.password))//if(this.id.equals(temp.id))
+		if(this.id.equals(temp.id) && this.password.equals(temp.password)) {
 			return true;
+		}
 		return false;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(id, password);
 	}
 	
 }

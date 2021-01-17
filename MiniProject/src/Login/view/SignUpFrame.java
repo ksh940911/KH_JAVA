@@ -1,12 +1,19 @@
 package Login.view;
 
-import java.awt.Label;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -29,92 +36,144 @@ public class SignUpFrame extends JFrame {
 	private JTextArea introduce;
 	private JRadioButton man;
 	private JRadioButton woman;
-
+	private Font font1 = new Font("HY견고딕", Font.BOLD, 22);
+	private ImagePanel panel = new ImagePanel("images/Findid.png");
+	
+	
 	public SignUpFrame(int w, int h, String title) {
 		MyUtil.init(this, w, h, title);
 		setLayout(null);
+		
+		panel.setBounds(0, 0, 550, 600);
+		add(panel);
 		inToppanel();
 		inIdSignUp();
 		inPasswordSignUp();
 		inNameSignUp();
-		inSecurityNumberSignUp();
+		inEmailSignUp();
 		inGendarSignUp();
 		inIntroduceSignUp();
 		inConfirmSignUp();
 		inCancelSignUp();
 
 	}
+	
+	// 폰트 사이즈 정하기용
+		public Font setmyfont(int size) {
+			return new Font("HY견고딕", Font.BOLD, size);
+
+		}
+
+		// 이미지 클래스
+		public class ImagePanel extends JPanel {
+
+			private BufferedImage image;
+			private int width;
+			private int height;
+
+			public ImagePanel(String fileName) {
+				setLayout(null);
+
+				try {
+					image = ImageIO.read(new File(fileName));
+					width = image.getWidth();
+					height = image.getHeight();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+			@Override
+			public Dimension getPreferredSize() {
+				return new Dimension(width, height);
+			}
+
+			@Override
+			protected void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.drawImage(image, 0, 0, null);
+			}
+
+		}
 
 	private void inToppanel() {
 
 		// 라벨
-		Label SignupLabel = new Label("Sign Up");
-		SignupLabel.setBounds(250, 0, 100, 100);
-		add(SignupLabel);
+		JLabel SignupLabel = new JLabel("Sign Up");
+		SignupLabel.setBounds(230, 0, 120, 120);
+		SignupLabel.setFont(setmyfont(25));
+		panel.add(SignupLabel);
 
 	}
 
 	private void inIdSignUp() {
 
 		// 라벨
-		Label IdLabel = new Label("ID");
+		JLabel IdLabel = new JLabel("ID");
 		IdLabel.setBounds(100, 100, 50, 50);
-		add(IdLabel);
+		IdLabel.setFont(setmyfont(17));
+		panel.add(IdLabel);
 
 		id = new JTextField();
-		id.setBounds(200, 110, 150, 30);
-		add(id);
+		id.setBounds(200, 110, 190, 30);
+		panel.add(id);
 
 	}
 
 	private void inPasswordSignUp() {
 
 		// 라벨
-		Label IdLabel = new Label("Password");
-		IdLabel.setBounds(80, 150, 60, 50);
-		add(IdLabel);
+		JLabel IdLabel = new JLabel("Password");
+		IdLabel.setBounds(75, 150, 90, 50);
+		IdLabel.setFont(setmyfont(15));
+		panel.add(IdLabel);
 
 		pwd = new JPasswordField();
-		pwd.setBounds(200, 160, 150, 30);
-		add(pwd);
+		pwd.setBounds(200, 160, 190, 30);
+		panel.add(pwd);
 
 	}
 
 	private void inNameSignUp() {
 
 		// 라벨
-		Label IdLabel = new Label("Name");
-		IdLabel.setBounds(90, 200, 50, 50);
-		add(IdLabel);
+		JLabel IdLabel = new JLabel("Name");
+		IdLabel.setBounds(85, 200, 70, 50);
+		IdLabel.setFont(setmyfont(17));
+		panel.add(IdLabel);
 
 		name = new JTextField();
-		name.setBounds(200, 210, 150, 30);
-		add(name);
+		name.setBounds(200, 210, 190, 30);
+		panel.add(name);
 
 	}
 
-	private void inSecurityNumberSignUp() {
+	private void inEmailSignUp() {
 
 		// 라벨
-		Label IdLabel = new Label("SecurityNumber");
-		IdLabel.setBounds(90, 250, 70, 50);
-		add(IdLabel);
+		JLabel IdLabel = new JLabel("Email");
+		IdLabel.setBounds(85, 250, 70, 50);
+		IdLabel.setFont(setmyfont(17));
+		panel.add(IdLabel);
 
 		email = new JTextField();
-		email.setBounds(200, 260, 70, 30);
-		add(email);
+		email.setBounds(200, 260, 190, 30);
+		panel.add(email);
 
 	}
 
 	private void inGendarSignUp() {
 
 		// 라벨
-		Label GendarLabel = new Label("Gendar");
-		GendarLabel.setBounds(90, 290, 50, 50);
+		JLabel GendarLabel = new JLabel("Gendar");
+		GendarLabel.setBounds(80, 290, 120, 60);
+		GendarLabel.setFont(setmyfont(15));
+
 
 		// 패널
 		JPanel GendarPanel = new JPanel();
-		GendarPanel.setBounds(110, 300, 300, 50);
+		GendarPanel.setBounds(220, 305, 140, 30);
+		GendarPanel.setFont(setmyfont(17));
 
 		// 버튼
 		man = new JRadioButton("man");
@@ -126,23 +185,25 @@ public class SignUpFrame extends JFrame {
 
 		GendarPanel.add(man);
 		GendarPanel.add(woman);
-		add(GendarLabel);
-		add(GendarPanel);
+		panel.add(GendarLabel);
+		panel.add(GendarPanel);
 
 	}
 
 	private void inIntroduceSignUp() {
 
 		// 라벨
-		Label IntroduceLabel = new Label("introduce");
-		IntroduceLabel.setBounds(90, 350, 100, 50);
+		JLabel IntroduceLabel = new JLabel("introduce");
+		IntroduceLabel.setBounds(75, 350, 100, 50);
+		IntroduceLabel.setFont(setmyfont(17));
+
 
 		// 택스트구역
 		introduce = new JTextArea();//
-		introduce.setBounds(200, 350, 250, 120);
+		introduce.setBounds(200, 350, 190, 100);
 
-		add(IntroduceLabel);
-		add(introduce);
+		panel.add(IntroduceLabel);
+		panel.add(introduce);
 
 	}
 
@@ -150,11 +211,14 @@ public class SignUpFrame extends JFrame {
 
 		JPanel ConfirmPanel = new JPanel();
 		ConfirmPanel.setBounds(300, 500, 60, 50);
+		ConfirmPanel.setFont(setmyfont(17));
+
 
 		JButton ConfirmButton = new JButton("확인");
+		ConfirmPanel.setFont(setmyfont(17));
 		ConfirmPanel.add(ConfirmButton);
 
-		add(ConfirmPanel);
+		panel.add(ConfirmPanel);
 
 		// 이벤트 핸들러
 		ConfirmButton.addActionListener(new ActionListener() {
@@ -168,7 +232,7 @@ public class SignUpFrame extends JFrame {
 				// 입력된 택스트 값 보내줘야함.ex 이름 아이디 비밀번호
 
 				String i = id.getText();
-				String p = pwd.getPassword().toString();
+				String p = new String(pwd.getPassword());
 				String n = name.getText();
 				String ee = email.getText();
 				String g = "";// gendar
@@ -183,8 +247,8 @@ public class SignUpFrame extends JFrame {
 					g = man.getText();
 				}
 
-				Login ID = new Login(i, p, n, ee, g, it);
-				LoginController.insertId(ID);
+				Login id = new Login(i, p, n, ee, g, it);
+				loginController.insertId(id);
 
 				// 종료
 				setVisible(false);
@@ -192,16 +256,19 @@ public class SignUpFrame extends JFrame {
 		});
 
 	}
-
 	private void inCancelSignUp() {
 
 		JPanel CancelPanel = new JPanel();
 		CancelPanel.setBounds(360, 500, 60, 50);
+		CancelPanel.setFont(setmyfont(17));
+
 
 		JButton CancelButton = new JButton("취소");
 		CancelPanel.add(CancelButton);
+		CancelPanel.setFont(setmyfont(17));
 
-		add(CancelPanel);
+
+		panel.add(CancelPanel);
 
 		// 이벤트 핸들러
 		CancelButton.addActionListener(new ActionListener() {

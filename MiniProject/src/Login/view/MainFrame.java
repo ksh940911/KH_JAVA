@@ -10,8 +10,8 @@ public class MainFrame {
 		mainFrame.setSize(700, 600);
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setVisible(true);
+		mainFrame.setResizable(false); //사이즈 변경불가
+
 
 	}
-
-
 }
